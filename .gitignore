@@ -1,0 +1,59 @@
+## Build results
+bin/
+obj/
+out/
+TestResults/
+*.user
+*.suo
+*.cache
+
+## Rider / VS for Mac / VS Code
+.idea/
+.vscode/
+*.sln.docstates
+
+## Visual Studio specific (safe even if you don't use it)
+*.sln*
+*.csproj.user
+*.dbmdl
+
+## Logs
+*.log
+
+## Secrets & Config
+appsettings.Development.json  # Optional: if it contains sensitive config (API keys, etc.)
+secrets.json
+
+## OS generated
+.DS_Store
+Thumbs.db
+
+## dotnet tools
+*.nupkg
+*.snupkg
+.nuget/
+
+## Global JSON & Tools Manifest (if needed, leave it)
+# global.json
+# .config/dotnet-tools.json
+
+## Coverage and analysis
+coverage/
+*.coverage
+*.coveragexml
+*.testresults
+
+## Node-related (if you use frontend tooling here)
+node_modules/
+
+## Docker artifacts (if used)
+*.dockerfile
+docker-compose.*
+.env
+
+## Optional: Include README, license, etc.
+!.gitattributes
+!.gitignore
+!README.md
+!*.sln
+!*.csproj
