@@ -1,0 +1,20 @@
+# install csharpier for formatting
+
+# add tool manifest
+  dotnet new tool-manifest   # if you don't have one yet
+
+# add csharpier
+  dotnet tool install csharpier
+
+# format project
+  dotnet csharpier format .
+
+# install husky for .NET
+  dotnet tool install husky
+  dotnet husky install
+
+# run husky
+dotnet husky run
+
+# add pre commit  file
+  dotnet husky add pre-commit -c "dotnet husky run"

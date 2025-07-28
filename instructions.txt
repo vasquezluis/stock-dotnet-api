@@ -1,0 +1,62 @@
+#1  VSC extensions
+  C# dev kit
+  C#
+  .NET
+  .NET install Tool
+  Nuget Gallery
+  Prettier
+  C# extensions JosKreativ
+
+#2 create asp.net project
+  dotnet new mvc -o myApp
+
+#3 create asp.net minimal project
+  dotnet new webapi -o api
+
+#4 run project
+  dotnet watch run
+
+#5 Create models <- DB tables
+  create Models directory
+
+#6 install Entity Framework through Nuget Gallery
+  ctr + sft + p
+    nuget gallery
+  search for entityFramework sqlserver
+  search for entityFramework tools
+  search for entityFramework design
+
+#8 create directory for db context
+  mkdir Data
+
+#9 create context for db
+  ApplicationDBContext.cs
+
+#10 add context to the Program.cs
+  add db context to Program.cs before var app
+
+#11 create new sql server database
+
+#12 update appsettings.json
+  add ConnectionStrings
+
+  "DefaultConnection": "Data Source=localhost\\SQLEXPRESS;Initial Catalog=finshark;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+
+  or
+
+  "DefaultConnection":"Server=localhost;Database=finshark;User=sa;Password=ODM2MzAnSS;TrustServerCertificate=True;Encrypt=True;"
+
+#13 create database migrations
+  create migration
+    dotnet ef migrations add init
+  
+  push migration to db
+    dotnet ef database update
+
+#14 create controllers directory
+  add controllers
+
+# 15 add controllers to Program.cs
+  builder.Services.AddControllers();
+  add map controllers before Run()
+    app.MapControllers();

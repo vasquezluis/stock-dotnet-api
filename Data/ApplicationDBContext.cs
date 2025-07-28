@@ -10,7 +10,8 @@ namespace api.Data
     public class ApplicationDBContext : DbContext
     {
         // public to create a constructor
-        public ApplicationDBContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
+        public ApplicationDBContext(DbContextOptions dbContextOptions)
+            : base(dbContextOptions) { }
 
         // to access to Model contexts
         public DbSet<Stock> Stocks { get; set; }
