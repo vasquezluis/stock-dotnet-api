@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.DTOs.Stock;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +41,24 @@ namespace api.Controllers
             }
 
             return Ok(stock.ToStockDto());
+        }
+
+        // create Stock
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateStockDto stockDto)
+        {
+            var stockModel = stockDto.ToStockFromCreateDto();
+
+            _context.Stocks.Add(stockModel);
+            _context.SaveChanges();
+
+            // nameof... returns the name of the method (GetById) as string
+            // the string is use by CreateAtAction to generate the URL for the newly created resource
+            return CreatedAtAction(
+                nameof(GetById),
+                new { id = stockModel.Id },
+                stockModel.ToStockDto()
+            );
         }
     }
 }

@@ -56,12 +56,16 @@
 #14 create controllers directory
   add controllers
 
-# 15 add controllers to Program.cs
+#15 add controllers to Program.cs
   builder.Services.AddControllers();
   add map controllers before Run()
     app.MapControllers();
 
-# DTOs
+#16 DTOs
   create a folder for DTOs
+    add dto for get request
 
-# create mappers folder
+#17 create mappers folder
+  add mapper for dto
+
+#18 add dto and mappers for create controllers
