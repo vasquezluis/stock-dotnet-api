@@ -10,7 +10,7 @@
 #2 create asp.net project
   dotnet new mvc -o myApp
 
-#3 create asp.net minimal project
+#3 create asp.net minimal project (this project)
   dotnet new webapi -o api
 
 #4 run project

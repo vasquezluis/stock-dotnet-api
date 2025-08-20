@@ -21,17 +21,17 @@ namespace api.Controllers
         }
 
         // get all Stocks
-        [HttpGet]
+        [HttpGet] // ? <--- decorator GET
         public IActionResult GetAll()
         {
-            var stocks = _context.Stocks.ToList().Select(s => s.ToStockDto());
+            var stocks = _context.Stocks.ToList().Select(s => s.ToStockDto()); // ? <--- LINQ
 
             return Ok(stocks);
         }
 
         // get Stock by id
-        [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        [HttpGet("{id}")] // ? <-- GET with params
+        public IActionResult GetById([FromRoute] int id) // ? <-- obtain params decorator from headers
         {
             var stock = _context.Stocks.Find(id);
 
@@ -44,13 +44,13 @@ namespace api.Controllers
         }
 
         // create Stock
-        [HttpPost]
-        public IActionResult Create([FromBody] CreateStockDto stockDto)
+        [HttpPost] // ? <-- decorator POST
+        public IActionResult Create([FromBody] CreateStockDto stockDto) // ? <-- obtain body decorator
         {
             var stockModel = stockDto.ToStockFromCreateDto();
 
             _context.Stocks.Add(stockModel);
-            _context.SaveChanges();
+            _context.SaveChanges(); // ? <-- save changes on context
 
             // nameof... returns the name of the method (GetById) as string
             // the string is use by CreateAtAction to generate the URL for the newly created resource
@@ -83,6 +83,24 @@ namespace api.Controllers
             _context.SaveChanges();
 
             return Ok(stockModel.ToStockDto());
+        }
+
+        // delete Stock
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            var stockModel = _context.Stocks.FirstOrDefault(x => x.Id == id);
+
+            if (stockModel == null)
+            {
+                return NotFound();
+            }
+
+            _context.Stocks.Remove(stockModel);
+            _context.SaveChanges();
+
+            return NoContent();
         }
     }
 }
