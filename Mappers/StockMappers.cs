@@ -9,6 +9,8 @@ namespace api.Mappers
 {
     public static class StockMappers
     {
+        // ? mappers for responses
+
         public static StockDto ToStockDto(this Stock stockModel)
         {
             return new StockDto

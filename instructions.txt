@@ -69,3 +69,17 @@
   add mapper for dto
 
 #18 add dto and mappers for create controllers
+
+#19 change controllers to use async/await
+
+#20 add Interfaces folder to add reporitories
+  create new interface
+
+#21 create directory for reporitories
+  create new class
+
+#22 implement interface to repository
+
+#23 implement IStockRepository to controllers with dependency injection
+
+#24 add repository context to Program.cs
